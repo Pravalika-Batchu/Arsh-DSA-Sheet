@@ -1,0 +1,19 @@
+Find the Duplicate number(Question No 287) from leetcode DSA questions.
+Code:
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        front = nums[0]
+        back = nums[0]
+     
+        while True:
+            back = nums[back]
+            front = nums[nums[front]]
+            if back == front:
+                break
+    
+        back = nums[0]
+        while back != front:
+            back = nums[back]
+            front = nums[front]
+    
+        return back
